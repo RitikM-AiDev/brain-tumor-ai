@@ -67,7 +67,7 @@ x = Dropout(0.5)(x)
 
 last_layer = Dense(4 , activation='softmax')(x)
 model = Model(
-    inputs = xception.input , 
+    inputs = xception.input, 
     outputs = last_layer
 )
 model.compile(

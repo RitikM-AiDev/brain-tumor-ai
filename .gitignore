@@ -9,3 +9,10 @@ Testing/
 *.png
 __pycache__/
 app_uploads/
+.venv/
+frontend/node_modules/
+.venv/
+__pycache__/
+*.h5
+pdfs/
+image_uploaded/

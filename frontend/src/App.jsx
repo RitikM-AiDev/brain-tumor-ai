@@ -19,7 +19,12 @@ function UploadImage() {
       method: "POST",
       body: formData
     });
-
+    if (response.ok) {
+      console.log("sent sucessful");
+    }
+    else {
+      console.log("Error");
+    }
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
 
@@ -32,7 +37,7 @@ function UploadImage() {
   };
 
   return (
-    <div style={{textAlign:"center", marginTop:"100px"}}>
+    <div style={{ textAlign: "center", marginTop: "100px" }}>
       <h1>BRAIN-TUMOR DETECTOR</h1>
       <h2>Upload Image</h2>
 
