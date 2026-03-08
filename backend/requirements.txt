@@ -10,5 +10,5 @@ langgraph
 langchain-core
 opencv-python
 numpy
-tensorflow-cpu
+tensorflow
 reportlab
