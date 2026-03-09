@@ -1,16 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse,JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-import os
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-from ai_dl.check import Check_Tumor
-from ai_dl.ai_agent import Agentic_ai
-import textwrap
-
 app = FastAPI()
-
-model = Check_Tumor()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
@@ -18,6 +9,17 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],    
 )
+
+import os
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+from ai_dl.check import Check_Tumor
+from ai_dl.ai_agent import Agentic_ai
+import textwrap
+
+
+
+model = Check_Tumor()
 
 def detect_tumor(file_path : str):
     sentence = model.check(file_path)
@@ -112,4 +114,7 @@ async def predict(file: UploadFile = File(...)):
             filename="Brain Tumor Report.pdf"
         )
     except Exception as e:
-        print(e)
+        return JSONResponse(
+            status_code=500,
+            content={"message": "Prediction failed"}
+        )

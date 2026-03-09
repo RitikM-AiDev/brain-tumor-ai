@@ -13,6 +13,7 @@ class Check_Tumor:
         img = np.expand_dims(img, axis=0)
         Y_predicted = classifier.predict(img)
         predicted_index = np.argmax(Y_predicted,axis=1)
+        print(predicted_index)
         if predicted_index == 0 :
             return "Glioma"
         elif predicted_index == 1:

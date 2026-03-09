@@ -21,11 +21,7 @@ function UploadImage() {
     });
     if (response.ok) {
       console.log("sent sucessful");
-    }
-    else {
-      console.log("Error");
-    }
-    const blob = await response.blob();
+      const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
 
     const a = document.createElement("a");
@@ -34,6 +30,10 @@ function UploadImage() {
     document.body.appendChild(a);
     a.click();
     a.remove();
+    }
+    else {
+      console.log("Error");
+    }
   };
 
   return (
