@@ -6,8 +6,7 @@ import cv2
 class Check_Tumor:
     def check(self,file_path :str):
         classifier = load_model("brain_tumor_detection_improved.h5")
-        image = f"./../backend/{file_path}"
-        img = cv2.imread(image)
+        img = cv2.imread(file_path)
         img = cv2.resize(img , (224,224))
         img = img / 255.0
         img = np.expand_dims(img, axis=0)
