@@ -2,7 +2,6 @@
 dataset/
 Training/
 Testing/
-*.h5
 *.keras
 *.jpg
 *.jpeg
@@ -13,6 +12,5 @@ app_uploads/
 frontend/node_modules/
 .venv/
 __pycache__/
-*.h5
 pdfs/
 image_uploaded/
