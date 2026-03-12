@@ -9,7 +9,11 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from ai_dl.check import Check_Tumor
 from ai_dl.ai_agent import Agentic_ai
+MODEL_PATH = "brain_tumor_detection_improved.h5"
 
+if not os.path.exists(MODEL_PATH):
+            url = "https://drive.google.com/uc?id=1RGbvYsIEZrZYQXo6XXwjWFADGq5cm--9"    
+            gdown.download(url,MODEL_PATH,quiet=False)
 app = FastAPI()
 
 app.add_middleware(
@@ -118,10 +122,7 @@ async def predict(file: UploadFile = File(...)):
     try:
 
         uploads = "image_uploaded"
-        MODEL_PATH = "brain_tumor_detection_improved.h5"
         os.makedirs(uploads, exist_ok=True)
-        url = "https://drive.google.com/uc?id=1RGbvYsIEZrZYQXo6XXwjWFADGq5cm--9"    
-        gdown.download(url,MODEL_PATH,quiet=False)
         file_name = file.filename
         file_path = os.path.join(uploads, file_name)
 
