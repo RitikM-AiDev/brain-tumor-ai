@@ -11,3 +11,4 @@ uvicorn
 tensorflow
 python-multipart
 pillow
+gdown
