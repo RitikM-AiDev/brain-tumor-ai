@@ -11,7 +11,7 @@ app_uploads/
 .venv/
 *.h5
 frontend/node_modules/
-.venv/
+venv/
 *.h5
 __pycache__/
 pdfs/
